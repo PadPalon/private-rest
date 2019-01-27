@@ -33,6 +33,7 @@ dependencies {
     
     testCompile group: "org.testng", name: "testng", version: "6.14.3"
     testCompile group: 'com.google.truth', name: 'truth', version: '0.42'
+    testCompile group: 'org.easymock', name: 'easymock', version: '4.0.2'
 
     testImplementation "org.springframework.boot:spring-boot-starter-test"
 }
