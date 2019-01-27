@@ -44,11 +44,17 @@ public class FeatureListController {
     }
 
     private String getPathOfController(FeatureController controller) {
-        String[] paths = controller.getClass().getAnnotation(RequestMapping.class).path();
+        RequestMapping annotation = controller.getClass().getAnnotation(RequestMapping.class);
+        String[] paths = annotation.path();
         if (paths.length > 0) {
             return paths[0];
         } else {
-            throw new IllegalStateException("Controller has no path defined");
+            String[] values = annotation.value();
+            if(values.length > 0) {
+                return values[0];
+            } else {
+                throw new IllegalStateException("Controller has no path defined");
+            }
         }
     }
 
